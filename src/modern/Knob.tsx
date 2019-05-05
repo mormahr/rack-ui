@@ -37,15 +37,16 @@ export const Knob: React.FC<KnobParams> = (props: KnobParams) => {
         {/* Knob */}
         <circle cx={50} cy={50} r={25} fill={"url(#outer-knob-gradient)"} />
         <circle cx={50} cy={50} r={19} fill={"url(#inner-knob-gradient)"} />
-        <rect
-          transform={`rotate(${valueToRotation(value, 150)} 50 50)`}
-          width={6}
-          height={28}
-          x={47}
-          y={18}
-          fill={"url(#inner-knob-gradient)"}
-          filter={"url(#marker-shadow)"}
-        />
+        <g filter={"url(#marker-shadow)"}>
+          <rect
+            transform={`rotate(${valueToRotation(value, 150)} 50 50)`}
+            width={6}
+            height={28}
+            x={47}
+            y={18}
+            fill={"url(#inner-knob-gradient)"}
+          />
+        </g>
       </g>
       <text x={50} y={90} textAnchor={"middle"} fontSize={8} fill={"#979797"}>
         {props.children}
